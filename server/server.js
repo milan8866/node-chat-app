@@ -28,6 +28,24 @@ io.on('connection',(socket) =>{
 	createdAt : 123
 });	*/
 
+//socket.emit from admin for every joined people text
+
+socket.emit('newMessage',{
+	from : 'admin',
+	text : 'welcome to the chat app',
+createdAt : new Date().getTime()
+});
+//socket.broadcast.emit from admin text new user joined
+
+socket.broadcast.emit('newMessage',{
+	from : 'admin',
+	text : 'New user joined',
+	createdAt : new Date().getTime()
+});
+
+
+
+
 socket.on('createMessage',(message) => {
 
 	console.log('createMessage', message);
@@ -38,6 +56,13 @@ socket.on('createMessage',(message) => {
 	text : message.text,
 	createdAt : new Date().getTime()
 	});
+
+	/*socket.broadcast('newMessage',{
+
+	from : message.from,
+	text : message.text,
+	createdAt : new Date().getTime()
+	});*/
 });
 
 socket.on('disconnect',() => {
