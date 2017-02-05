@@ -3,11 +3,11 @@
 
  	console.log('connected to server');
  
- socket.emit('createMessagge', {
+ /*socket.emit('createMessagge', {
 
  	from : 'milan',
  	text : 'yup that is worked for me'
- });
+ });*/
 
  });
 
